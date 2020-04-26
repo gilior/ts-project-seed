@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
+    "clean-build":"npm run clean && npm run lint && tsc -p tsconfig.json",
     "build": "npm run clean && npm run lint && tsc -p tsconfig.json && npm run uglify && npm run browserify",
     "uglify": "uglifyjs-folder dist --output dist/all.min.js --pattern \"**/*.js,!**/*min.js\"",
     "browserify": "browserify -e dist/all.min.js --standalone TsProjectSeed -o dist/all.min.js",
